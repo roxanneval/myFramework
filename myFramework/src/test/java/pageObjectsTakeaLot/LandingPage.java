@@ -16,24 +16,10 @@ public class LandingPage extends BasePage {
 	    }
 
 		
-		/* 1
-		 * GIVEN shopper is on the Landing Page == LandingPage.checkLandingPage
-		 * WHEN Shopper clicks on the cart button == LandingPage.clickCartButton()
-		 * THEN check that the shopper is on the cart page == CartPage.checkCartPageNavigation
-		 * AND check that Cart is empty is displayed == CartPage.displayEmptyCart("Your shopping cart is empty"
-		 * GIVEN_ShopperIsOnLandingPage_WHEN_ShopperClicksOnCartButton_THEN_CheckShopperIsOnCartPage_AND_CheckCArtIsEmpty
-		 */
 		public void clickCartButton() {
 			
 		}
 		
-		/* 2
-		 * GIVEN shopper is on the Landing Page == LandingPage.checkLandingPageNavigation
-		 * WHEN Shopper enters "DKNY" as the search string == LandingPage.searchForItem
-		 * AND clicks the search button == LandingPage.clickSearchButton
-		 * THEN "DKNY" is displayed as the first item in the grid == ResultsPage.checkItemName
-		 * GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed()
-		 */
 		
 		public void clickSearchButton() {
 			clickElement(By.cssSelector("button[type='submit']"));
@@ -50,15 +36,34 @@ public class LandingPage extends BasePage {
 		
 		
 		
-		public void clickElementText() {
+		public void clikOnItem() {
 			clickElement(By.cssSelector(
 					"div:nth-of-type(2) > .grid.search-product  .product-anchor.product-card-module_product-anchor_TUCBV"));
-		}
-		//div:nth-of-type(2) > .grid.search-product  .product-anchor.product-card-module_product-anchor_TUCBV
+		} 
 		
 		
-		public void selectItem (String selectItem) {
+		
+		public void quizPopUp() {
+			String nextButton = "_hj-3HqTj_styles_surveyActionButton";
+			try {
+				clickElement(By.className("_hj-2fsWS_styles_closeEndedOptionText"));
+				clickElement(By.className(nextButton));
+				clickElement(By.className(nextButton));
+				clickElement(By.className("_hj-3Y4y-_styles_closeButton"));}
 			
+			catch(Exception e) {
+				System.out.println("Survey not there");
+				e.printStackTrace();
+			}
 		}
 		
-}
+		public void clickCookiesButton() {
+			try {
+				clickElement(By.cssSelector(".button.cookies-banner-module_dismiss-button_24Z98"));}
+			catch (Exception e) {
+				System.out.println("cookie not there");
+				//e.printStackTrace
+			}
+		}
+		}
+

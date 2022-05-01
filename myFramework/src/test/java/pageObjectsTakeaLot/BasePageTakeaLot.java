@@ -18,6 +18,9 @@ public class BasePageTakeaLot extends BasePage{
 			clickElement(By.cssSelector("button.cookies-banner-module_dismiss-button_24Z98"));
 	}
 	
+	public void closeBrowser() {
+		driver.close();
+	}
 		
 	}
 	

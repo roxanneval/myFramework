@@ -1,7 +1,12 @@
 package frameWorkClasses;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +20,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
+	
+	String browser = getDataConfigProperties("browser");
+	String URL = getDataConfigProperties("URL");
+	String pdriverDir = getDataConfigProperties("pdriverDir");
+
+	
 
 		// Declare the Web Driver
 			public static WebDriver driver;
@@ -26,9 +37,10 @@ public class BasePage {
 //			String browser = getDataConfigProperties("browser");
 //			String URL = getDataConfigProperties("systemUnderTest");
 //			String pdriverDir = getDataConfigProperties("driverdir");
-					String browser = "chrome";
-					String URL = "https://www.takealot.com/";
-					String pdriverDir = "C:\\\\Selenium\\";
+//					String browser = "chrome";
+//					String URL = "https://www.takealot.com/";
+//					String pdriverDir = "C:\\\\Selenium\\";
+					
 
 			// String pdriverDirFireFox = getDataConfigProperties("driverDirFireFox");
 			// String pdriverDirEdge = getDataConfigProperties("driverdirEdge");
@@ -62,6 +74,23 @@ public class BasePage {
 		}
 	}
 			
+			public String getDataConfigProperties (String propertyName) {
+				//Properties Set
+				//System.out.printIn("in config")
+				Properties p = new Properties();
+				InputStream is = null;
+				try {
+					is = new FileInputStream("config.properties");
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				try {
+					p.load(is);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return p.getProperty(propertyName);
+			}
 
 			// Switch Window
 				public void SwitchToNewTab() {
@@ -126,6 +155,11 @@ public class BasePage {
 			}
 
 	// Method: Clear text from field
+		public void clearText(By pLocator) {
+			waitforClick(30, pLocator);
+			driver.findElement(pLocator).clear();
+		}
+	
 	// Method: Select from dropdown
 	// Method: Get text from Method - Pass
 	// Method: Check Element exists
