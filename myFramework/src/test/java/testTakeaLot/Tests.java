@@ -8,12 +8,17 @@ import pageObjectsTakeaLot.LandingPage;
 import pageObjectsTakeaLot.ResultsPage;
 import pageObjectsTakeaLot.WishListPage;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import frameWorkClasses.ReadExcel;
 
 public class Tests {
 	
@@ -25,6 +30,7 @@ public class Tests {
 	BasePageTakeaLot basePageTakealot = new BasePageTakeaLot();	
 	ItemDetailPage itemDetailPage = new ItemDetailPage();
 	WishListPage wishListPage = new WishListPage();
+	ReadExcel rExcel = new ReadExcel();
 	
 
 	
@@ -98,10 +104,10 @@ public class Tests {
 		basePageTakealot.clickCookiesButton();
 	}
 	
-//	@AfterTest
-//	public void cleanUp() {
-//		basePageTakealot.closeBrowser();
-//	}
+	@AfterTest
+	public void cleanUp() {
+		basePageTakealot.cleanUp();
+	}
 	
 	//3
 	@Test 
@@ -178,5 +184,25 @@ public class Tests {
 		itemDetailPage.clickColour();		
 		
 }
+	//7
+		@Test(dataProvider="Brand&Quantity")
+		public void SearchWithExcel(String brand, String quantity) throws InterruptedException {
+			
+			basePageTakealot.navigateToHomePage();
+			landingPage.clickSearchBar();
+			landingPage.enterTextInSearchBar(brand);
+			landingPage.clickSearchButton();
+			landingPage.clikOnItem();	
+			resultsPage.SwitchToNewTab();
+			itemDetailPage.clickAddtoCart();
+			itemDetailPage.clickGoToCart();
+			
+		}
 	
+		@DataProvider(name = "Brand&Quantity")
+		public Object[][] getDataFromExcel() throws IOException{
+			String excelDirectory = rExcel.getDataConfigProperties("excelDataDir");
+			Object[][] errObj = rExcel.getExcelData(excelDirectory +"Brand&Quantity.xlsx", "Sheet1");
+			return errObj;
+		}
 }

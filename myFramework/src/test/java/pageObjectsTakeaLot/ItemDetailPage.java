@@ -44,7 +44,7 @@ public class ItemDetailPage extends BasePage {
 		public int getUnitPrice() {
 			String unitPriceString = getElementText(By.cssSelector("[data-ref='buybox-price-main]"));
 			String unitPrice = unitPriceString.replaceAll("//D", "");
-			int unitPriceInt = Interger.parseInt(unitPrice);
+			int unitPriceInt = Integer.parseInt(unitPrice);
 			return unitPriceInt;
 		}
 }

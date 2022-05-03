@@ -4,7 +4,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class ListernerTakeaLot implements ITestListener {
+import frameWorkClasses.BasePage;
+
+public class ListenerTakeaLot extends BasePage implements ITestListener {
+	
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -40,6 +43,7 @@ public class ListernerTakeaLot implements ITestListener {
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onFinish(context);
+		cleanUp();
 	}
 	
 	

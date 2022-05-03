@@ -19,6 +19,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BasePage {
 	
 	String browser = getDataConfigProperties("browser");
@@ -47,8 +49,10 @@ public class BasePage {
 
 			// Check of Parameter passed as "chrome"
 				if (browser.equalsIgnoreCase("chrome")) {
+					
+				WebDriverManager.chromedriver().setup();
 				// Set path to chromedriver.exe
-				System.setProperty("webdriver.chrome.driver", pdriverDir + "chromedriver.exe");
+				//System.setProperty("webdriver.chrome.driver", pdriverDir + "chromedriver.exe");
 				// Create instance of Chrome
 				driver = new ChromeDriver();
 				driver.get(URL);
@@ -56,7 +60,8 @@ public class BasePage {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			} else if (browser.equalsIgnoreCase("firefox")) {
 				// Set path to geckodriver.exe
-				System.setProperty("webdriver.gecko.driver", pdriverDir + "geckodriver.exe");
+				WebDriverManager.firefoxdriver().setup();
+				//System.setProperty("webdriver.gecko.driver", pdriverDir + "geckodriver.exe");
 				// Create an instance of firefox
 				driver = new FirefoxDriver();
 				driver.get(URL);
@@ -64,7 +69,8 @@ public class BasePage {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			} else if (browser.equalsIgnoreCase("edge")) {
 				// Set path to geckodriver.exe
-				System.setProperty("webdriver.edge.driver", pdriverDir + "MicrosoftWebDriver.exe");
+				WebDriverManager.edgedriver().setup();
+				//System.setProperty("webdriver.edge.driver", pdriverDir + "MicrosoftWebDriver.exe");
 				// Create an instance of edge
 				driver = new EdgeDriver();
 				driver.get(URL);
@@ -159,11 +165,23 @@ public class BasePage {
 			waitforClick(30, pLocator);
 			driver.findElement(pLocator).clear();
 		}
+		
+		// Methods: Cleanup i.e close the Driver
+		public void cleanUp() {
+			driver.quit();
+		}
+		
+		// Methods: Cleanup i.e close the Driver
+		public void close() {
+			driver.close();
+		}
+		
+		
 	
 	// Method: Select from dropdown
 	// Method: Get text from Method - Pass
 	// Method: Check Element exists
 	// check if our Driver has been started, if not then start
-	// Methods: Cleanup i.e close the Driver
+
 
 }

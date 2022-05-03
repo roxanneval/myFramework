@@ -1,7 +1,9 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/myFramework/myFramework/App.java=UTF-8
+encoding//src/test/java=UTF-8
 encoding//src/test/java/frameWorkClasses/BasePage.java=UTF-8
-encoding//src/test/java/listeners/ListernerTakeaLot.java=UTF-8
+encoding//src/test/java/listeners/ListenerTakeaLot.java=UTF-8
 encoding//src/test/java/pageObjectsTakeaLot/BasePageTakeaLot.java=UTF-8
 encoding//src/test/java/pageObjectsTakeaLot/CartPage.java=UTF-8
 encoding//src/test/java/pageObjectsTakeaLot/CheckOutPage.java=UTF-8

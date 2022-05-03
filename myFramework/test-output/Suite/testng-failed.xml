@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="listeners.ListenerTakeaLot"/>
+  </listeners>
+  <test thread-count="5" name="Testmxl(failed)">
     <classes>
       <class name="testTakeaLot.Tests">
         <methods>
           <include name="GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed4"/>
           <include name="setup"/>
-          <include name="cleanUp"/>
           <include name="GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed2"/>
           <include name="GIVEN_ShopperHasSelectedItem_WHEN_ShopperAddsItemToWishList_AND_ShopperNavigatesToWishList_THEN_CheckItemIsAddedToWishList3"/>
           <include name="SearchWithExcel"/>
           <include name="GIVEN_ShopperHasSelectedItem_WHEN_ShopperAddsItemToWishList_AND_ShopperNavigatesToWishList_THEN_CheckItemIsAddedToWishList2"/>
         </methods>
       </class> <!-- testTakeaLot.Tests -->
+      <class name="testTakeaLot.ReadDataFromExcelTests">
+        <methods>
+          <include name="BrandQuantity"/>
+          <include name="BrandQuantityInt"/>
+        </methods>
+      </class> <!-- testTakeaLot.ReadDataFromExcelTests -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Testmxl(failed) -->
+</suite> <!-- Failed suite [Suite] -->
