@@ -17,8 +17,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import frameWorkClasses.GetSheetData;
 
-import frameWorkClasses.ReadExcel;
 
 public class Tests {
 	
@@ -30,13 +30,13 @@ public class Tests {
 	BasePageTakeaLot basePageTakealot = new BasePageTakeaLot();	
 	ItemDetailPage itemDetailPage = new ItemDetailPage();
 	WishListPage wishListPage = new WishListPage();
-	ReadExcel rExcel = new ReadExcel();
+	GetSheetData rExcel = new GetSheetData();
 	
+	@BeforeTest
+	public void setUp() {
+		basePageTakealot.clickCookiesButton();
+}
 
-	
-
-	
-	
 	/* 1
 	 * GIVEN shopper is on the Landing Page == LandingPage.checkLandingPageNavigation
 	 * WHEN Shopper clicks on the cart button == LandingPage.clickCartButton()
@@ -89,7 +89,7 @@ public class Tests {
 		landingPage.enterTextInSearchBar(searchInput);
 		landingPage.clickSearchButton();
 		landingPage.clikOnItem();	
-		resultsPage.SwitchToNewTab();
+		resultsPage.switchToNewTab();
 		itemDetailPage.itemBrand();
 		actualText = itemDetailPage.itemBrand();
 		System.out.println("This is the description for the item:" + " " + actualText );
@@ -118,7 +118,7 @@ public class Tests {
 			landingPage.enterTextInSearchBar(searchInput);
 			landingPage.clickSearchButton();
 			landingPage.clikOnItem();	
-			resultsPage.SwitchToNewTab();
+			resultsPage.switchToNewTab();
 			itemDetailPage.clickAddtoCart();
 			itemDetailPage.clickGoToCart();
 			cartPage.checkcartCount("(1 item)");
@@ -139,7 +139,7 @@ public class Tests {
 		landingPage.enterTextInSearchBar(searchInput);
 		landingPage.clickSearchButton();
 		landingPage.clikOnItem();
-		itemDetailPage.SwitchToNewTab();
+		itemDetailPage.switchToNewTab();
 		actualBrand = itemDetailPage.itemBrand();
 		System.out.println("Print the Text " + actualBrand);
 		String headingDescription = itemDetailPage.headingDescription();
@@ -160,7 +160,7 @@ public class Tests {
 		landingPage.enterTextInSearchBar(searchInput);
 		landingPage.clickSearchButton();
 		landingPage.clikOnItem();	
-		resultsPage.SwitchToNewTab();
+		resultsPage.switchToNewTab();
 		itemDetailPage.clickAddToWishList();
 		itemDetailPage.clickGoToWishList();
 		pageDtl = wishListPage.confirmWishlistPage();
@@ -179,7 +179,7 @@ public class Tests {
 		landingPage.enterTextInSearchBar(searchInput);
 		landingPage.clickSearchButton();
 		landingPage.clikOnItem();	
-		resultsPage.SwitchToNewTab();
+		resultsPage.switchToNewTab();
 		itemDetailPage.clickSelectOptions();
 		itemDetailPage.clickColour();		
 		
@@ -193,16 +193,11 @@ public class Tests {
 			landingPage.enterTextInSearchBar(brand);
 			landingPage.clickSearchButton();
 			landingPage.clikOnItem();	
-			resultsPage.SwitchToNewTab();
+			resultsPage.switchToNewTab();
 			itemDetailPage.clickAddtoCart();
 			itemDetailPage.clickGoToCart();
 			
 		}
 	
-		@DataProvider(name = "Brand&Quantity")
-		public Object[][] getDataFromExcel() throws IOException{
-			String excelDirectory = rExcel.getDataConfigProperties("excelDataDir");
-			Object[][] errObj = rExcel.getExcelData(excelDirectory +"Brand&Quantity.xlsx", "Sheet1");
-			return errObj;
-		}
+	
 }

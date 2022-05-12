@@ -3,17 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testTakeaLot.Tests">
+      <class name="testTakeaLot.ReadDataFromExcelTests">
         <methods>
-          <include name="GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed4"/>
-          <include name="setup"/>
-          <include name="cleanUp"/>
-          <include name="GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed2"/>
-          <include name="GIVEN_ShopperHasSelectedItem_WHEN_ShopperAddsItemToWishList_AND_ShopperNavigatesToWishList_THEN_CheckItemIsAddedToWishList3"/>
-          <include name="SearchWithExcel"/>
-          <include name="GIVEN_ShopperHasSelectedItem_WHEN_ShopperAddsItemToWishList_AND_ShopperNavigatesToWishList_THEN_CheckItemIsAddedToWishList2"/>
+          <include name="getData"/>
         </methods>
-      </class> <!-- testTakeaLot.Tests -->
+      </class> <!-- testTakeaLot.ReadDataFromExcelTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
