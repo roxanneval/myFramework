@@ -10,7 +10,7 @@ public class BasePageTakeaLot extends BasePage{
 	// Method: Go to Home Page
 		public void navigateToHomePage() {
 //			String browser = getDataConfigPropeties("browser");
-			String URL = getDataConfigProperties("URL");
+			String URL = getDataConfigPropeties("URL");
 //			String pdriverDir = getDataConfigPropeties("driverdir");
 //			driver.get("https://www.takealot.com/");
 			driver.get(URL);

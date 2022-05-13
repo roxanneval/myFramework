@@ -13,12 +13,13 @@ public class ItemDetailPage extends BasePage {
 	}
 		
 		public String headingDescription() {
-			String text2 = getElementText(By.cssSelector("h1"));
+			String text2 = getElementText(By.cssSelector(".title-content-list a"));
 			return text2;
 		}
 		
 		public void clickAddtoCart() {
-			clickElement(By.cssSelector(".buybox-actions-module_add-to-cart-cell_3fXyS [href]"));
+			clickElement(By.cssSelector
+					(".cell.large-3.pdp-module_side-bar_TDHGJ .add-to-cart-button.add-to-cart-button-module_add-to-cart-button_1a9gT.button.expanded"));
 		}
 		
 		public void clickGoToCart() {

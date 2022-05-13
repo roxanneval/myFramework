@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testTakeaLot.ReadDataFromExcelTests">
+      <class name="testTakeaLot.Tests">
         <methods>
-          <include name="getData"/>
+          <include name="GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed4"/>
+          <include name="setUp"/>
+          <include name="cleanUp"/>
         </methods>
-      </class> <!-- testTakeaLot.ReadDataFromExcelTests -->
+      </class> <!-- testTakeaLot.Tests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

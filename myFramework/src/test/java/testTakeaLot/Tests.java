@@ -8,16 +8,14 @@ import pageObjectsTakeaLot.LandingPage;
 import pageObjectsTakeaLot.ResultsPage;
 import pageObjectsTakeaLot.WishListPage;
 
-import java.io.IOException;
+
 
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import frameWorkClasses.GetSheetData;
+import org.testng.annotations.Test;                                                                                                                                           
+
 
 
 public class Tests {
@@ -30,12 +28,13 @@ public class Tests {
 	BasePageTakeaLot basePageTakealot = new BasePageTakeaLot();	
 	ItemDetailPage itemDetailPage = new ItemDetailPage();
 	WishListPage wishListPage = new WishListPage();
-	GetSheetData rExcel = new GetSheetData();
+	//GetSheetData rExcel = new GetSheetData();
 	
 	@BeforeTest
 	public void setUp() {
-		basePageTakealot.clickCookiesButton();
+	basePageTakealot.clickCookiesButton();
 }
+	
 
 	/* 1
 	 * GIVEN shopper is on the Landing Page == LandingPage.checkLandingPageNavigation
@@ -73,15 +72,11 @@ public class Tests {
 	
 	
 	
-	//1
-	@Test
-	public void GIVEN_ShopperIsOnLandingPage_WHEN_ShopperClicksOnCartButton_THEN_CheckShopperIsOnCartPage_AND_CheckCArtIsEmpty1() {	
-	}
 
 	//2
 	@Test
 	public void GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed2() {	
-		String searchInput = "DKNY";
+		String searchInput = "Calvin Klein";
 		String actualText;
 		String expectedText = searchInput;
 		basePageTakealot.navigateToHomePage();
@@ -97,11 +92,6 @@ public class Tests {
 		Reporter.log("Actual result is:" + " " + actualText);
 		Assert.assertEquals(expectedText, actualText);
 		
-	
-	}
-	@BeforeTest
-	public void setup() {
-		basePageTakealot.clickCookiesButton();
 	}
 	
 	@AfterTest
@@ -133,7 +123,7 @@ public class Tests {
 	public void GIVEN_ShopperIsOnLandingPage_WHEN_ShopperEntersDKNYonSearchField_AND_ShopperClicksSearchButton_THEN_DKNYisDisplayed4() {
 		String searchInput = "DKNY";
 		String actualBrand;
-		String expectedBrand = "DKNY";
+		String expectedBrand = "Calvin Klein";
 		basePageTakealot.navigateToHomePage();
 		landingPage.clickSearchBar();
 		landingPage.enterTextInSearchBar(searchInput);
@@ -146,9 +136,9 @@ public class Tests {
 		System.out.println("The heading of the first item is text " + headingDescription);
 		Reporter.log("Expected Brand is " + " " + expectedBrand);
 		Reporter.log("Actual Brand is " + actualBrand);
-		Reporter.log("Expected Item Description is ");
+		Reporter.log("Expected Item Description is " + " " + expectedBrand);
 		Assert.assertEquals(actualBrand, expectedBrand);
-		Assert.assertTrue(headingDescription.contains("DKNY"));
+		Assert.assertTrue(headingDescription.contains("Calvin Klein"));
 	}
 	//5
 	@Test
@@ -184,20 +174,20 @@ public class Tests {
 		itemDetailPage.clickColour();		
 		
 }
-	//7
-		@Test(dataProvider="Brand&Quantity")
-		public void SearchWithExcel(String brand, String quantity) throws InterruptedException {
-			
-			basePageTakealot.navigateToHomePage();
-			landingPage.clickSearchBar();
-			landingPage.enterTextInSearchBar(brand);
-			landingPage.clickSearchButton();
-			landingPage.clikOnItem();	
-			resultsPage.switchToNewTab();
-			itemDetailPage.clickAddtoCart();
-			itemDetailPage.clickGoToCart();
-			
-		}
+//	//7
+//		@Test(dataProvider="Brand&Quantity")
+//		public void SearchWithExcel(String brand, String quantity) throws InterruptedException {
+//			
+//			basePageTakealot.navigateToHomePage();
+//			landingPage.clickSearchBar();
+//			landingPage.enterTextInSearchBar(brand);
+//			landingPage.clickSearchButton();
+//			landingPage.clikOnItem();	
+//			resultsPage.switchToNewTab();
+//			itemDetailPage.clickAddtoCart();
+//			itemDetailPage.clickGoToCart();
+//			
+//		}
 	
 	
 }

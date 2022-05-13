@@ -6,7 +6,7 @@
 	</listeners>
 	<test thread-count="5" name="Testmxl">
 		<classes>
-			<class name="testTakeaLot.ReadDataFromExcelTests" />
+			<!-- <class name="testTakeaLot.ReadDataFromExcelTests" />-->
 			<class name="testTakeaLot.Tests" />
 			<class name="testTakeaLot.ExeptionDemo" />
 		</classes>
